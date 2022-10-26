@@ -1,9 +1,9 @@
 import './PlaceDetails.css';
 
-export default function PlaceDetails() {
+export default function PlaceDetails( {place}) {
     return (
         <div>
-            Hello
+            {place.name}
         </div>
     )
 }

@@ -1,0 +1,11 @@
+.content-container {
+    display: flex;
+}
+
+.list-items {
+    flex: 30%;
+}
+
+.map {
+    flex: 70%;
+}

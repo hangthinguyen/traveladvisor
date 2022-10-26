@@ -1,23 +1,30 @@
-import { CssBaseline } from '@mui/material';
-import { Grid } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { CssBaseline} from '@mui/material';
 import Header from './components/Header/Header';
 import List from './components/List/List';
 import Map from './components/Map/Map';
+import { getPlacesData } from './api/Index';
 import './App.css';
 
 export default function App() {
+    const [places, setPlaces] = useState([]);
+
+    useEffect(() => {
+        getPlacesData();
+    },[]);
+
     return (
         <div>
             <CssBaseline />
             <Header />
-            <Grid container spacing={3} styles={{ width: '100%' }}>
-                <Grid item xs={12} md={4}>
+            <div style={{ width: '100%'}} className='content-container'>
+                <div className='list-items'>
                     <List />
-                </Grid>
-                <Grid item xs={12} md={8}>
+                </div>
+                <div className='map'>
                     <Map />
-                </Grid>
-            </Grid>
+                </div>
+            </div>
         </div>
     )
 }
